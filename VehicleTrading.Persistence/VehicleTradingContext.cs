@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using VehicleTrading.Core.Contracts;
 using VehicleTrading.Core.Models;
+using VehicleTrading.Persistence.Configurations;
 
 namespace VehicleTrading.Persistence
 {
@@ -53,7 +54,14 @@ namespace VehicleTrading.Persistence
 
             #region Model Configurations
 
-
+            builder.ApplyConfiguration(new SettingsConfiguration());
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new SellerConfiguration());
+            builder.ApplyConfiguration(new CarMakeConfiguration());
+            builder.ApplyConfiguration(new CarModelConfiguration());
+            builder.ApplyConfiguration(new AdConfiguration());
+            builder.ApplyConfiguration(new AdVersionConfiguration());
+            builder.ApplyConfiguration(new ImageConfiguration());
 
             #endregion
         }

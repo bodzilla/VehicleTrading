@@ -14,7 +14,11 @@ namespace VehicleTrading.Core.Models
         #region Default Constructor
 
         /// <inheritdoc />
-        public Ad() => Images = new HashSet<Image>();
+        public Ad()
+        {
+            AdVersions = new HashSet<AdVersion>();
+            Images = new HashSet<Image>();
+        }
 
         #endregion
 
@@ -58,6 +62,11 @@ namespace VehicleTrading.Core.Models
         public int PostCode { get; set; }
 
         /// <summary>
+        /// The registration plate.
+        /// </summary>
+        public string RegistrationPlate { get; set; }
+
+        /// <summary>
         /// The ad's <see cref="Enums.AdStatusType"/>.
         /// </summary>
         public AdStatusType AdStatusType { get; set; }
@@ -68,7 +77,7 @@ namespace VehicleTrading.Core.Models
         public AdType AdType { get; set; }
 
         /// <summary>
-        /// The vehicle's <see cref="Enums.BodyType"/>.
+        /// The vehicle's <see cref="BodyType"/>.
         /// </summary>
         public BodyType BodyType { get; set; }
 
@@ -110,17 +119,17 @@ namespace VehicleTrading.Core.Models
         /// <summary>
         /// The vehicle's bhp.
         /// </summary>
-        public int Bhp { get; set; }
+        public int? Bhp { get; set; }
 
         /// <summary>
         /// The vehicle's number of doors.
         /// </summary>
-        public int Doors { get; set; }
+        public int? Doors { get; set; }
 
         /// <summary>
         /// The vehicle's number of seats.
         /// </summary>
-        public int Seats { get; set; }
+        public int? Seats { get; set; }
 
         /// <summary>
         /// The associated <see cref="Models.Seller"/> id.
@@ -128,14 +137,29 @@ namespace VehicleTrading.Core.Models
         public int SellerId { get; set; }
 
         /// <summary>
+        /// The associated <see cref="CarModel"/> id.
+        /// </summary>
+        public int CarModelId { get; set; }
+
+        /// <summary>
         /// The associated list of <see cref="Image"/>s.
         /// </summary>
         public ICollection<Image> Images { get; set; }
 
         /// <summary>
+        /// The associated list of <see cref="AdVersion"/>s.
+        /// </summary>
+        public ICollection<AdVersion> AdVersions { get; set; }
+
+        /// <summary>
         /// The associated <see cref="Models.Seller"/>.
         /// </summary>
         public Seller Seller { get; set; }
+
+        /// <summary>
+        /// The associated <see cref="CarModel"/>.
+        /// </summary>
+        public CarModel CarModel { get; set; }
 
         #endregion
     }

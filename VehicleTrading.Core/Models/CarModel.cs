@@ -43,9 +43,19 @@ namespace VehicleTrading.Core.Models
         public VehicleType VehicleType { get; set; }
 
         /// <summary>
+        /// The associated <see cref="CarMake"/> id.
+        /// </summary>
+        public int CarMakeId { get; set; }
+
+        /// <summary>
         /// The associated list of <see cref="Ad"/>s.
         /// </summary>
         public ICollection<Ad> Ads { get; set; }
+
+        /// <summary>
+        /// The associated <see cref="CarMake"/>.
+        /// </summary>
+        public CarMake CarMake { get; set; }
 
         #endregion
     }
