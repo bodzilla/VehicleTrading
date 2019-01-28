@@ -34,7 +34,7 @@ namespace VehicleTrading.Core.Models
         /// <summary>
         /// The associated <see cref="Models.Ad"/> id.
         /// </summary>
-        public string AdId { get; set; }
+        public int AdId { get; set; }
 
         /// <summary>
         /// The associated <see cref="Models.Ad"/>.

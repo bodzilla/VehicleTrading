@@ -29,6 +29,9 @@ namespace VehicleTrading.Persistence.Configurations
             builder.Property(x => x.PostCode).IsRequired()
                 .HasMaxLength(10);
 
+            builder.Property(x => x.RegistrationPlate).IsRequired()
+                .HasMaxLength(10);
+
             // Ad has many images.
             // Image has one ad.
             builder.HasMany(x => x.Images);
