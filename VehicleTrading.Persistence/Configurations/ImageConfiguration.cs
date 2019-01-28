@@ -16,10 +16,13 @@ namespace VehicleTrading.Persistence.Configurations
             builder.Property(x => x.EntityCreated).HasDefaultValueSql("getdate()");
             builder.Property(x => x.EntityActive).HasDefaultValue(true);
             builder.HasIndex(x => x.Link).IsUnique();
-            builder.Property(x => x.Name).HasDefaultValue(DateTime.Now.ToString("yyyyMMddhmmtt"));
 
             builder.Property(x => x.EntityVersion).IsConcurrencyToken()
                 .IsRowVersion();
+
+            builder.Property(x => x.Name).IsRequired()
+                .HasMaxLength(50)
+                .HasDefaultValue(DateTime.Now.ToString("yyyyMMddhmmtt"));
 
             // Image has one ad.
             // Ad has many images.
