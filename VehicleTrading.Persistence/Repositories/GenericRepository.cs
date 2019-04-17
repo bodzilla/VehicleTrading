@@ -58,6 +58,14 @@ namespace VehicleTrading.Persistence.Repositories
             return entities;
         }
 
+        public async Task<IEnumerable<dynamic>> GetAllSubsetAsync(Expression<Func<T, object>> fields, params Expression<Func<T, object>>[] navigationProperties)
+        {
+            IQueryable<T> query = Context.Set<T>();
+            query = navigationProperties.Aggregate(query, (current, navigationProperty) => current.Include(navigationProperty));
+            IEnumerable<dynamic> entities = await query.Select(fields).ToListAsync();
+            return entities;
+        }
+
         #endregion
 
         #region Synchronous Methods
@@ -100,6 +108,12 @@ namespace VehicleTrading.Persistence.Repositories
         #endregion
 
         #region Universal Methods
+
+        /// <inheritdoc />
+        public void Update(params T[] entities)
+        {
+            foreach (T entity in entities) Context.Set<T>().Update(entity);
+        }
 
         /// <inheritdoc />
         public void Remove(params T[] entities)

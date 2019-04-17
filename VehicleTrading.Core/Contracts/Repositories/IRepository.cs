@@ -96,6 +96,12 @@ namespace VehicleTrading.Core.Contracts.Repositories
         #region Universal Methods
 
         /// <summary>
+        /// Updates <see cref="T"/>.
+        /// </summary>
+        /// <param name="entities"></param>
+        void Update(params T[] entities);
+
+        /// <summary>
         /// Removes <see cref="T"/>.
         /// </summary>
         /// <param name="entities"></param>

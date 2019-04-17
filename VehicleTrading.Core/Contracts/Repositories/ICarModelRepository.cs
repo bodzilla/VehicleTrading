@@ -1,4 +1,5 @@
-﻿using VehicleTrading.Core.Models;
+﻿using System.Threading.Tasks;
+using VehicleTrading.Core.Models;
 
 namespace VehicleTrading.Core.Contracts.Repositories
 {
@@ -8,5 +9,18 @@ namespace VehicleTrading.Core.Contracts.Repositories
     /// </summary>
     public interface ICarModelRepository : IRepository<CarModel>
     {
+        /// <summary>
+        /// Check if the <see cref="CarModel"/> name exists.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        Task<bool> NameExistsAsync(string name);
+
+        /// <summary>
+        /// Create a new <see cref="CarModel"/>.
+        /// </summary>
+        /// <param name="carModels"></param>
+        /// <returns></returns>
+        Task CreateAsync(params CarModel[] carModels);
     }
 }
